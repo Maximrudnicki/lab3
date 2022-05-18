@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New book</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/books}" th:object="${book}">
+    <label for="name">Enter name: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
+    <br/>
+    <label for="author">Enter author: </label>
+    <input type="text" th:field="*{author}" id="author"/>
+    <div style="color:red" th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Author Error</div>
+    <br/>
+    <label for="year_of_publishing">Enter year of publishing: </label>
+    <input type="text" th:field="*{year_of_publishing}" id="year_of_publishing"/>
+    <div style="color:red" th:if="${#fields.hasErrors('year_of_publishing')}" th:errors="*{year_of_publishing}">Year of publishing Error</div>
+    <br/>
+    <label for="amount">Enter amount: </label>
+    <input type="text" th:field="*{amount}" id="amount"/>
+    <div style="color:red" th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}">Amount Error</div>
+    <br/>
+    <label for="price">Enter price: </label>
+    <input type="text" th:field="*{price}" id="price"/>
+    <div style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</div>
+    <br/>
+    <input type="submit" value="Add!"/>
+</form>
+
+</body>
+</html>
